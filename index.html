@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Configurações básicas do documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raiz Café | Torrefação artesanal de café brasileiro</title>
+  <meta name="description" content="Raiz Café — torrefação artesanal de pequenos lotes de café brasileiro, com rastreabilidade de origem, cardápio autoral e ambiente para tomar aquele cafezinho com calma." />
+  <meta name="theme-color" content="#1C130D" />
+
+  <!-- Favicon simples em formato de xícara, usando emoji como data URI (evita depender de arquivo externo) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>" />
+
+  <!-- Google Fonts: Fraunces (título/serifada com personalidade), Manrope (texto) e Space Mono (dados técnicos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome, usado apenas para ícones pequenos de UI (menu, redes sociais, setas) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Folha de estilos própria do projeto -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Caso o JavaScript esteja desabilitado, os elementos de animação (.reveal)
+       precisam continuar visíveis em vez de ficarem ocultos para sempre -->
+  <noscript>
+    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
+</head>
+<body>
+
+  <!-- ===================== CABEÇALHO / NAVEGAÇÃO ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <!-- Logo da marca -->
+      <a href="#inicio" class="logo" aria-label="Raiz Café, voltar ao início">
+        <svg class="logo__icon" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 4c-6 6-10 11-10 17a10 10 0 0 0 20 0c0-6-4-11-10-17Z" />
+        </svg>
+        Raiz<span>.</span>
+      </a>
+
+      <!-- Menu de navegação principal (desktop e mobile) -->
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <button class="nav__close" id="navClose" aria-label="Fechar menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <ul class="nav__list">
+          <li><a href="#inicio" class="nav__link">Início</a></li>
+          <li><a href="#origens" class="nav__link">Origens</a></li>
+          <li><a href="#cardapio" class="nav__link">Cardápio</a></li>
+          <li><a href="#galeria" class="nav__link">Galeria</a></li>
+          <li><a href="#depoimentos" class="nav__link">Depoimentos</a></li>
+          <li><a href="#contato" class="nav__link">Visite-nos</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#contato" class="btn btn--primary btn--small">Reservar mesa</a>
+
+        <!-- Botão hambúrguer, visível apenas no mobile -->
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+    <!-- Camada escura atrás do menu mobile aberto -->
+    <div class="nav__overlay" id="navOverlay"></div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO / INÍCIO ===================== -->
+    <section class="hero" id="inicio">
+      <!-- Elementos decorativos em SVG, puramente visuais -->
+      <div class="hero__decor" aria-hidden="true">
+        <svg class="hero__cup" viewBox="0 0 200 200">
+          <path class="hero__cup-body" d="M40 70h100l-8 70a20 20 0 0 1-20 18H68a20 20 0 0 1-20-18Z" />
+          <path class="hero__cup-handle" d="M140 85c22-4 34 10 34 26s-14 30-34 27" />
+          <line class="hero__steam" x1="70" y1="55" x2="70" y2="15" />
+          <line class="hero__steam hero__steam--2" x1="100" y1="55" x2="100" y2="10" />
+          <line class="hero__steam hero__steam--3" x1="130" y1="55" x2="130" y2="15" />
+        </svg>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Torrefação própria · Pequenos lotes</p>
+          <h1 class="hero__title">Da lavoura ao copo,<br />sem pressa e sem atalhos.</h1>
+          <p class="hero__text">
+            Compramos direto de famílias produtoras espalhadas pelo Brasil, torramos
+            em lotes pequenos toda semana e servimos cada xícara sabendo exatamente
+            de qual fazenda, altitude e processo ela veio.
+          </p>
+          <div class="hero__actions">
+            <a href="#cardapio" class="btn btn--primary">Ver cardápio</a>
+            <a href="#origens" class="btn btn--ghost">Conhecer as origens</a>
+          </div>
+        </div>
+
+        <!-- Cartão "ficha técnica" flutuante: elemento de assinatura visual repetido pela página -->
+        <div class="spec-card spec-card--hero reveal" aria-hidden="true">
+          <span class="spec-card__tag">Ficha nº 024</span>
+          <strong class="spec-card__title">Cerrado Mineiro, MG</strong>
+          <dl class="spec-card__list">
+            <div><dt>Altitude</dt><dd>1.100 m</dd></div>
+            <div><dt>Processo</dt><dd>Natural</dd></div>
+            <div><dt>Torra</dt><dd>Média</dd></div>
+          </dl>
+          <div class="roast-gauge" data-level="3">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#origens" class="hero__scroll-cue" aria-label="Rolar para a próxima seção">
+        <span>role para explorar</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </section>
+
+    <!-- ===================== ORIGENS (substitui um "Sobre" genérico) ===================== -->
+    <section class="origins" id="origens">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Nossas origens</p>
+          <h2 class="section-title">Cada saca tem um endereço.</h2>
+          <p class="section-text">
+            Trabalhamos direto com produtores de quatro regiões brasileiras que
+            conhecemos pessoalmente. Cada origem entra no cardápio com sua própria
+            ficha técnica — assim você sabe exatamente o que está bebendo.
+          </p>
+        </div>
+
+        <div class="origins__grid">
+
+          <article class="spec-card reveal">
+            <span class="spec-card__tag">Origem 01</span>
+            <strong class="spec-card__title">Cerrado Mineiro <em>— MG</em></strong>
+            <dl class="spec-card__list">
+              <div><dt>Altitude</dt><dd>1.100 m</dd></div>
+              <div><dt>Processo</dt><dd>Natural</dd></div>
+            </dl>
+            <p class="spec-card__notes">Notas de caramelo, castanha e chocolate ao leite.</p>
+            <span class="tag tag--caramel">Processo natural</span>
+          </article>
+
+          <article class="spec-card reveal">
+            <span class="spec-card__tag">Origem 02</span>
+            <strong class="spec-card__title">Mantiqueira de Minas <em>— MG</em></strong>
+            <dl class="spec-card__list">
+              <div><dt>Altitude</dt><dd>1.250 m</dd></div>
+              <div><dt>Processo</dt><dd>Cereja descascado</dd></div>
+            </dl>
+            <p class="spec-card__notes">Frutas vermelhas, mel e um toque floral no final.</p>
+            <span class="tag tag--green">Cereja descascado</span>
+          </article>
+
+          <article class="spec-card reveal">
+            <span class="spec-card__tag">Origem 03</span>
+            <strong class="spec-card__title">Chapada Diamantina <em>— BA</em></strong>
+            <dl class="spec-card__list">
+              <div><dt>Altitude</dt><dd>950 m</dd></div>
+              <div><dt>Processo</dt><dd>Lavado</dd></div>
+            </dl>
+            <p class="spec-card__notes">Acidez cítrica, notas de cana-de-açúcar e final limpo.</p>
+            <span class="tag tag--rust">Lavado</span>
+          </article>
+
+          <article class="spec-card reveal">
+            <span class="spec-card__tag">Origem 04</span>
+            <strong class="spec-card__title">Norte Pioneiro <em>— PR</em></strong>
+            <dl class="spec-card__list">
+              <div><dt>Altitude</dt><dd>900 m</dd></div>
+              <div><dt>Processo</dt><dd>Natural</dd></div>
+            </dl>
+            <p class="spec-card__notes">Cacau, rapadura e amêndoas torradas.</p>
+            <span class="tag tag--caramel">Processo natural</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CARDÁPIO ===================== -->
+    <section class="menu" id="cardapio">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Cardápio</p>
+          <h2 class="section-title">Do espresso curto ao coado lento.</h2>
+          <p class="section-text">
+            Seis maneiras de tomar o mesmo café. Escolha pela intensidade ou pela paciência que você tem hoje.
+          </p>
+        </div>
+
+        <!-- Filtro por categoria, controlado via JavaScript -->
+        <div class="menu__filters reveal" role="tablist" aria-label="Filtrar cardápio">
+          <button class="menu__filter is-active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+          <button class="menu__filter" data-filter="quente" role="tab" aria-selected="false">Quentes</button>
+          <button class="menu__filter" data-filter="frio" role="tab" aria-selected="false">Frios</button>
+          <button class="menu__filter" data-filter="comida" role="tab" aria-selected="false">Para comer</button>
+        </div>
+
+        <div class="menu__grid" id="menuGrid">
+
+          <article class="menu-card reveal" data-category="quente">
+            <div class="menu-card__head">
+              <h3>Espresso</h3>
+              <span class="menu-card__price">R$ 7</span>
+            </div>
+            <p>Extração curta e encorpada, com crema densa.</p>
+            <div class="roast-gauge" data-level="5" aria-label="Intensidade 5 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="quente">
+            <div class="menu-card__head">
+              <h3>Cortado</h3>
+              <span class="menu-card__price">R$ 9</span>
+            </div>
+            <p>Espresso com um véu de leite vaporizado por cima.</p>
+            <div class="roast-gauge" data-level="4" aria-label="Intensidade 4 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="quente">
+            <div class="menu-card__head">
+              <h3>Cappuccino</h3>
+              <span class="menu-card__price">R$ 12</span>
+            </div>
+            <p>Espresso, leite vaporizado e uma camada generosa de espuma.</p>
+            <div class="roast-gauge" data-level="3" aria-label="Intensidade 3 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="quente">
+            <div class="menu-card__head">
+              <h3>Flat White</h3>
+              <span class="menu-card__price">R$ 12</span>
+            </div>
+            <p>Dose dupla de espresso com microespuma aveludada.</p>
+            <div class="roast-gauge" data-level="4" aria-label="Intensidade 4 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="quente">
+            <div class="menu-card__head">
+              <h3>Prensa Francesa</h3>
+              <span class="menu-card__price">R$ 11</span>
+            </div>
+            <p>Corpo pesado, extração longa e rústica, sem filtro de papel.</p>
+            <div class="roast-gauge" data-level="3" aria-label="Intensidade 3 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="quente">
+            <div class="menu-card__head">
+              <h3>Coado V60</h3>
+              <span class="menu-card__price">R$ 13</span>
+            </div>
+            <p>Xícara limpa e leve, com as notas florais bem em evidência.</p>
+            <div class="roast-gauge" data-level="2" aria-label="Intensidade 2 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="quente">
+            <div class="menu-card__head">
+              <h3>Mocha</h3>
+              <span class="menu-card__price">R$ 14</span>
+            </div>
+            <p>Espresso, chocolate meio amargo e leite vaporizado.</p>
+            <div class="roast-gauge" data-level="3" aria-label="Intensidade 3 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="frio">
+            <div class="menu-card__head">
+              <h3>Cold Brew</h3>
+              <span class="menu-card__price">R$ 14</span>
+            </div>
+            <p>Extração a frio por 16 horas, com doçura natural e pouca acidez.</p>
+            <div class="roast-gauge" data-level="3" aria-label="Intensidade 3 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="frio">
+            <div class="menu-card__head">
+              <h3>Affogato</h3>
+              <span class="menu-card__price">R$ 16</span>
+            </div>
+            <p>Bola de sorvete de creme afogada em espresso duplo, na hora.</p>
+            <div class="roast-gauge" data-level="4" aria-label="Intensidade 4 de 5">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="menu-card reveal" data-category="frio">
+            <div class="menu-card__head">
+              <h3>Chá Gelado de Hibisco</h3>
+              <span class="menu-card__price">R$ 10</span>
+            </div>
+            <p>Infusão floral e frutada, servida bem gelada. Sem cafeína.</p>
+          </article>
+
+          <article class="menu-card reveal" data-category="comida">
+            <div class="menu-card__head">
+              <h3>Pão de Queijo</h3>
+              <span class="menu-card__price">R$ 8</span>
+            </div>
+            <p>Quentinho, direto do forno, do jeito mineiro.</p>
+          </article>
+
+          <article class="menu-card reveal" data-category="comida">
+            <div class="menu-card__head">
+              <h3>Croissant Amanteigado</h3>
+              <span class="menu-card__price">R$ 12</span>
+            </div>
+            <p>Folhado clássico, amanteigado por fora e por dentro.</p>
+          </article>
+
+          <article class="menu-card reveal" data-category="comida">
+            <div class="menu-card__head">
+              <h3>Bolo de Fubá com Goiabada</h3>
+              <span class="menu-card__price">R$ 11</span>
+            </div>
+            <p>Fatia generosa, receita de família passada entre os sócios.</p>
+          </article>
+
+          <article class="menu-card reveal" data-category="comida">
+            <div class="menu-card__head">
+              <h3>Torrada de Abacate</h3>
+              <span class="menu-card__price">R$ 17</span>
+            </div>
+            <p>Pão de fermentação natural, abacate amassado, limão e flor de sal.</p>
+          </article>
+
+        </div>
+
+        <!-- Mensagem exibida quando o filtro não encontra nenhum item (tratado via JS) -->
+        <p class="menu__empty" id="menuEmpty" hidden>Nenhum item encontrado nessa categoria.</p>
+      </div>
+    </section>
+
+    <!-- ===================== GALERIA ===================== -->
+    <section class="gallery" id="galeria">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Galeria</p>
+          <h2 class="section-title">Da torra ao balcão.</h2>
+          <p class="section-text">Clique em uma imagem para ampliar.</p>
+        </div>
+
+        <!--
+          Grade de imagens com fotos reais (banco de imagens Unsplash, uso livre
+          — Unsplash License: unsplash.com/license, não exige atribuição).
+          Por limitação deste ambiente de geração, os arquivos não puderam ser
+          baixados para dentro de /imgs automaticamente — veja imgs/LEIA-ME.txt
+          para baixá-los com um comando e trocar o "src" pelo caminho local.
+        -->
+        <div class="gallery__grid" id="galleryGrid">
+          <button class="gallery__item reveal" data-full="https://images.unsplash.com/photo-1753837787691-84a06d715d24?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1753837787691-84a06d715d24?auto=format&fit=crop&w=700&q=80" alt="Grãos de café torrados, close-up" loading="lazy" /><!-- imgs/graos-torrados.jpg -->
+          </button>
+          <button class="gallery__item gallery__item--tall reveal" data-full="https://images.unsplash.com/photo-1755163412328-df3b4c2b172e?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1755163412328-df3b4c2b172e?auto=format&fit=crop&w=700&q=80" alt="Ambiente interno de cafeteria com mesas de madeira e plantas" loading="lazy" /><!-- imgs/ambiente-cafeteria.jpg -->
+          </button>
+          <button class="gallery__item reveal" data-full="https://images.unsplash.com/photo-1761271046396-97d231b59dd7?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1761271046396-97d231b59dd7?auto=format&fit=crop&w=700&q=80" alt="Barista finalizando um latte art" loading="lazy" /><!-- imgs/latte-art.jpg -->
+          </button>
+          <button class="gallery__item reveal" data-full="https://images.unsplash.com/photo-1511287830614-09802dd6cd79?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1511287830614-09802dd6cd79?auto=format&fit=crop&w=700&q=80" alt="Máquinas de espresso de aço inox no balcão" loading="lazy" /><!-- imgs/maquina-espresso.jpg -->
+          </button>
+          <button class="gallery__item gallery__item--tall reveal" data-full="https://images.unsplash.com/photo-1666114170628-b34b0dcc21aa?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1666114170628-b34b0dcc21aa?auto=format&fit=crop&w=700&q=80" alt="Pães e itens de padaria no balcão da cafeteria" loading="lazy" /><!-- imgs/padaria-balcao.jpg -->
+          </button>
+          <button class="gallery__item reveal" data-full="https://images.unsplash.com/photo-1561336062-d28ae6bfcca8?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1561336062-d28ae6bfcca8?auto=format&fit=crop&w=700&q=80" alt="Café sendo servido em xícara de cerâmica" loading="lazy" /><!-- imgs/servindo-cafe.jpg -->
+          </button>
+        </div>
+        <p class="gallery__credit">Fotos: Unsplash (Indra Projects, Kris Tian, Karl Joshua Bernal, Nathan Dumlao, Oliver Plattner e René Porter) — uso livre via <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash License</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===================== DEPOIMENTOS ===================== -->
+    <section class="testimonials" id="depoimentos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Depoimentos</p>
+          <h2 class="section-title">Quem já provou, volta.</h2>
+        </div>
+
+        <div class="testimonial-slider reveal">
+          <div class="testimonial-slider__track" id="testimonialTrack">
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
+              <p>"O coado V60 daqui mudou minha manhã. Dá pra sentir que cada lote é diferente do anterior — isso é o que mais gosto."</p>
+              <div class="testimonial-card__author">
+                <span class="avatar">MF</span>
+                <div>
+                  <strong>Mariana Furtado</strong>
+                  <small>Cliente desde 2022</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
+              <p>"Trabalho ali perto e virou parada obrigatória. O cortado é o melhor da região, sem exagero."</p>
+              <div class="testimonial-card__author">
+                <span class="avatar">RA</span>
+                <div>
+                  <strong>Rafael Andrade</strong>
+                  <small>Cliente frequente</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" aria-label="Avaliação 4 de 5 estrelas">★★★★☆</div>
+              <p>"Gosto muito de saber de onde vem o café que estou tomando. A ficha técnica em cada mesa é um toque e tanto."</p>
+              <div class="testimonial-card__author">
+                <span class="avatar">CL</span>
+                <div>
+                  <strong>Camila Lopes</strong>
+                  <small>Cliente desde 2023</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <div class="testimonial-card__stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</div>
+              <p>"Levei grãos para casa depois de experimentar o Cerrado Mineiro na loja. Nunca mais comprei café de supermercado."</p>
+              <div class="testimonial-card__author">
+                <span class="avatar">JP</span>
+                <div>
+                  <strong>João Pedro Melo</strong>
+                  <small>Cliente desde 2021</small>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="testimonial-slider__controls">
+            <button class="slider-btn" id="testimonialPrev" aria-label="Depoimento anterior">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="testimonial-slider__dots" id="testimonialDots"></div>
+            <button class="slider-btn" id="testimonialNext" aria-label="Próximo depoimento">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO / VISITE-NOS ===================== -->
+    <section class="contact" id="contato">
+      <div class="container contact__inner">
+
+        <div class="contact__info reveal">
+          <p class="eyebrow">Visite-nos</p>
+          <h2 class="section-title">Marque uma mesa ou nos mande um recado.</h2>
+
+          <ul class="contact__details">
+            <li><i class="fa-solid fa-location-dot"></i> Rua Harmonia, 210 — Vila Madalena, São Paulo — SP, 05435-000</li>
+            <li><i class="fa-solid fa-phone"></i> (11) 3031-4478</li>
+            <li><i class="fa-solid fa-envelope"></i> contato@raizcafe.com.br</li>
+          </ul>
+
+          <table class="contact__hours">
+            <caption>Horário de funcionamento</caption>
+            <tbody>
+              <tr><th>Segunda a sexta</th><td>7h30 às 19h</td></tr>
+              <tr><th>Sábado</th><td>9h às 19h</td></tr>
+              <tr><th>Domingo</th><td>9h às 15h</td></tr>
+            </tbody>
+          </table>
+
+          <div class="social-links">
+            <a href="#" aria-label="Raiz Café no Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Raiz Café no Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Raiz Café no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+
+          <!--
+            Mapa real incorporado do Google Maps (não exige chave de API para
+            esta forma de embed). O endereço aponta para a Rua Harmonia, uma
+            rua real da Vila Madalena (SP) conhecida por seus cafés — troque
+            a query abaixo pelo endereço real do seu negócio quando tiver um.
+          -->
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps?q=Rua+Harmonia,+210+-+Vila+Madalena,+S%C3%A3o+Paulo+-+SP,+05435-000&output=embed"
+              title="Mapa com a localização do Raiz Café"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <h3>Envie uma mensagem</h3>
+
+          <div class="form-field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required />
+            <span class="form-error" data-error-for="nome"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="voce@email.com" required />
+            <span class="form-error" data-error-for="email"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto">
+              <option value="reserva">Reserva de mesa</option>
+              <option value="eventos">Eventos privados</option>
+              <option value="fornecimento">Fornecimento de grãos</option>
+              <option value="outro">Outro assunto</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte pra gente o que precisa" required></textarea>
+            <span class="form-error" data-error-for="mensagem"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--full">Enviar mensagem</button>
+
+          <!-- Mensagem de sucesso exibida via JavaScript após o envio simulado -->
+          <p class="form-success" id="formSuccess" hidden>
+            <i class="fa-solid fa-circle-check"></i> Mensagem enviada! Responderemos em breve.
+          </p>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="#inicio" class="logo logo--footer">
+          <svg class="logo__icon" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M20 4c-6 6-10 11-10 17a10 10 0 0 0 20 0c0-6-4-11-10-17Z" />
+          </svg>
+          Raiz<span>.</span>
+        </a>
+        <p>Torrefação artesanal de café brasileiro, lote por lote, origem por origem.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Raiz Café no Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Raiz Café no Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Raiz Café no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#origens">Origens</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Cafeteria</h4>
+        <ul>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Visite-nos</a></li>
+          <li><a href="#contato">Trabalhe conosco</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col footer__newsletter">
+        <h4>Receba novidades de safra</h4>
+        <p>Um e-mail por mês com novos lotes e origens.</p>
+        <form id="newsletterForm" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="Seu e-mail" required />
+          <button type="submit" aria-label="Inscrever-se">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+        <span class="form-error" id="newsletterError"></span>
+        <span class="form-success" id="newsletterSuccess" hidden>Inscrito com sucesso!</span>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span id="anoAtual"></span> Raiz Café. Todos os direitos reservados.</p>
+      <p class="footer__credit">Projeto autoral feito para fins de portfólio.</p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante "voltar ao topo", exibido via JavaScript após rolagem -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Lightbox usado pela galeria de imagens -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fechar imagem">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img alt="" id="lightboxImage" />
+  </div>
+
+  <!-- Script próprio do projeto, carregado no fim do body -->
+  <script src="script.js"></script>
+</body>
+</html>
