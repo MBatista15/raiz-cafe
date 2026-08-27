@@ -83,3 +83,12 @@ raiz-cafe/
 ├── 🎨 style.css       # Design system, layout, componentes e responsividade
 ├── ⚡ script.js      # Lógica da aplicação, eventos e manipulação do DOM
 └── 📜 LICENSE        # Licença de uso do software
+```
+
+## 👤 Autor
+
+Desenvolvido por Matheus Batista.
+
+LinkedIn: [https://www.linkedin.com/in/matheus-batista-857a47236/]
+
+GitHub: @MBatista15
